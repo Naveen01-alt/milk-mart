@@ -34,6 +34,9 @@ const Top = () => {
           <button className="nav-button" onClick={() => handleNav("/")}>
             Home
           </button>
+           <button className="nav-button" onClick={() => handleNav("/products")}>
+            Products
+          </button>
           <button className="nav-button" onClick={() => handleNav("/cart")}>
             Cart
           </button>
