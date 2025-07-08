@@ -30,36 +30,60 @@ const Checkout = () => {
     setCart(updatedCart);
   };
 
-  const handleOrder = () => {
-    let validationErrors = {};
-    if (!customerDetails.name.trim()) validationErrors.name = "Name is required";
-    if (!customerDetails.phone.trim()) validationErrors.phone = "Phone number is required";
-    else if (!/^\d{10}$/.test(customerDetails.phone.trim())) validationErrors.phone = "Invalid phone number";
-    if (!customerDetails.address.trim()) validationErrors.address = "Address is required";
-    if (!customerDetails.pincode.trim()) validationErrors.pincode = "Pincode is required";
-    else if (!/^\d{6}$/.test(customerDetails.pincode.trim())) validationErrors.pincode = "Invalid pincode";
-  
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
+  const handleOrder = async () => {
+  let validationErrors = {};
+  if (!customerDetails.name.trim()) validationErrors.name = "Name is required";
+  if (!customerDetails.phone.trim()) validationErrors.phone = "Phone number is required";
+  else if (!/^\d{10}$/.test(customerDetails.phone.trim())) validationErrors.phone = "Invalid phone number";
+  if (!customerDetails.address.trim()) validationErrors.address = "Address is required";
+  if (!customerDetails.pincode.trim()) validationErrors.pincode = "Pincode is required";
+  else if (!/^\d{6}$/.test(customerDetails.pincode.trim())) validationErrors.pincode = "Invalid pincode";
 
-    setLoading(true);
+  if (Object.keys(validationErrors).length > 0) {
+    setErrors(validationErrors);
+    return;
+  }
 
-    setTimeout(() => {
-      alert("Order Placed Successfully! ✅");
+  setLoading(true);
+
+  try {
+    const response = await fetch("https://backend-rho-eight-49.vercel.app/send-order", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: customerDetails.name,
+        phone: customerDetails.phone,
+        address: customerDetails.address,
+        pincode: customerDetails.pincode,
+        cart: cart,
+        totalAmount: totalAmount,
+      }),
+    });
+
+    const result = await response.json();
+
+    if (response.ok) {
+      alert("✅ Order Placed Successfully & Email Sent!");
       localStorage.setItem("orderedItems", JSON.stringify(cart));
-    localStorage.setItem("totalAmount", JSON.stringify(totalAmount));
+      localStorage.setItem("totalAmount", JSON.stringify(totalAmount));
 
       navigate("/order", {
         state: { orderedItems: cart, totalAmount },
       });
       setCustomerDetails({ name: "", phone: "", address: "", pincode: "" });
-      setLoading(false);
-      
-    }, 1500);
-  };
-
+    } else {
+      console.error("Server responded with error:", result.error);
+      alert("❌ Order failed: " + result.error);
+    }
+  } catch (error) {
+    console.error("Error placing order:", error);
+    alert("❌ Could not place order. Please try again later.");
+  } finally {
+    setLoading(false);
+  }
+};
   return (
     <div style={styles.container}>
       <h2>🛍️ Checkout</h2>
