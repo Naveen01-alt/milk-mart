@@ -5,22 +5,18 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
-        
-       
-
-        
-       
-
         {/* Social Media */}
-        <div className="footer-section">
-          <h4>Follow Us</h4>
-          <div className="social-icons">
-            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
-          </div>
+        <div className="social-icons">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-instagram"></i>
+          </a>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-twitter"></i>
+          </a>
         </div>
-
       </div>
 
       {/* Footer Bottom */}
