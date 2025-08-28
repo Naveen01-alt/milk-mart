@@ -88,6 +88,14 @@
     z-index: 1000;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
   }
+  .logo {
+  font-size: 10px;
+  font-weight: 400;
+  color: #d32f2f; /* red brand accent */
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
 
   .nav.open {
     right: 0;
