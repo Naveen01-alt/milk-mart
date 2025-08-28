@@ -4,6 +4,7 @@
   height: 20vh;
   overflow: hidden;
   position: relative;
+  padding-top:20px;
 }
 
 /* === Slider Images (Full Size & Centered) === */
