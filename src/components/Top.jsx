@@ -21,7 +21,7 @@ const Top = () => {
       <header className="header">
         {/* Logo */}
         <div className="logo">
-          <img src="/MilkyWay.jpg" alt="Milky Way Logo" />
+          <h1>MilkyWay</h1>
         </div>
 
         {/* Hamburger button (visible on mobile only) */}
