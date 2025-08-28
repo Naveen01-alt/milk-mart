@@ -1,13 +1,14 @@
-/* === Header === */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #333;
-  padding: 15px 20px;
+  background: linear-gradient(90deg, #b71c1c, #d32f2f); /* professional deep red gradient */
+  padding: 15px 25px;
   color: white;
   position: relative;
   z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* subtle shadow */
+  border-bottom: 2px solid #a00000; /* sleek border */
 }
 
 /* === Logo === */
@@ -25,6 +26,11 @@
   font-size: 28px;
   cursor: pointer;
   z-index: 1001;
+  transition: transform 0.2s ease;
+}
+
+.menu-button:hover {
+  transform: scale(1.1); /* subtle hover effect */
 }
 
 /* === Nav buttons (Desktop) === */
@@ -34,16 +40,22 @@
 }
 
 .nav-button {
-  background: linear-gradient(45deg, #ff7e5f, #feb47b);
+  background: linear-gradient(45deg, #e53935, #ff5252);
   color: white;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 10px 25px;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 10px 22px;
   border: none;
-  border-radius: 30px;
+  border-radius: 25px;
   cursor: pointer;
   text-transform: uppercase;
-  transition: 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background: linear-gradient(45deg, #ff5252, #e53935);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
 }
 
 /* === Mobile Styles === */
@@ -55,19 +67,18 @@
   .nav {
     position: absolute;
     top: 100%;
-    bottom: 100;
     right: -100%; /* hidden by default */
     height: 50vh;
     width: 250px;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    
-    padding-top: 10px;
-    gap: 30px;
+    background: linear-gradient(180deg, #c62828, #e53935); /* red gradient for mobile nav */
+    padding-top: 20px;
+    gap: 25px;
     transition: right 0.3s ease-in-out;
     z-index: 1000;
-    
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
   }
 
   .nav.open {
@@ -75,35 +86,24 @@
   }
 
   .nav-button {
-    width: 100%;
+    width: 90%;
     text-align: center;
-    padding: 15px 0;
-    border-bottom: 1px solid #444;
-    padding-top: 10px;
+    padding: 14px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
   }
+
   .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     position: relative;
   }
-  
-  
+
   .logo {
     flex: 1;
   }
-  
-  
-  
-  
-  
+
   .menu-button {
     flex-shrink: 0;
   }
-  
-
-  
-  
 }
 
 /* === Overlay === */
@@ -113,6 +113,6 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.55);
   z-index: 999;
 }
