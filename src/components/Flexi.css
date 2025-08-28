@@ -36,6 +36,6 @@
 /* === Responsive Design === */
 @media (max-width: 768px) {
   .slider-container {
-    height: 40vh; /* Reduce height on smaller screens */
+    height: 20vh; /* Reduce height on smaller screens */
   }
 }
