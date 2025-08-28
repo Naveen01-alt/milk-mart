@@ -85,7 +85,9 @@ const Products = ({ addToCart }) => {
 
   return (
     <div className="products-container">
+      <marquee>
       <h2>Available Milk Products</h2>
+        </marquee>
       <div className="products-list">
         {products.map((product) => (
           <div key={product.id} className="product-card">
