@@ -3,8 +3,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffffff; /* clean white */
-  padding: 14px 24px;
+  background: #ffffff;
+  padding: 14px 22px;
   position: relative;
   z-index: 1000;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
@@ -14,32 +14,26 @@
 .logo h1 {
   font-size: 22px;
   font-weight: 700;
-  color: #d32f2f; /* brand red */
+  color: #d32f2f;
   margin: 0;
   letter-spacing: 1px;
   cursor: pointer;
-  transition: color 0.2s ease;
 }
 
-.logo h1:hover {
-  color: #b71c1c;
-}
-
-/* === Hamburger Button (mobile only) === */
+/* === Hamburger Button === */
 .menu-button {
   display: none;
   background: none;
   border: none;
-  color: #d32f2f;
+  color: #d32f2f; /* red on white */
   font-size: 28px;
   cursor: pointer;
-  z-index: 1100;
-  transition: transform 0.2s ease, color 0.2s ease;
+  z-index: 1101; /* must be above nav + overlay */
+  transition: transform 0.2s ease;
 }
 
 .menu-button:hover {
   transform: scale(1.1);
-  color: #b71c1c;
 }
 
 /* === Nav (Desktop) === */
@@ -85,12 +79,12 @@
     padding: 80px 20px 20px;
     gap: 20px;
     transition: right 0.3s ease-in-out;
-    z-index: 1050;
+    z-index: 1100; /* above overlay */
     box-shadow: -2px 0 12px rgba(0, 0, 0, 0.2);
   }
 
   .nav.open {
-    right: 0;
+    right: 0; /* slide in */
   }
 
   .nav-button {
@@ -120,7 +114,7 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1040;
+  z-index: 1099; /* below nav but above header */
   animation: fadeIn 0.3s ease;
 }
 
