@@ -45,11 +45,7 @@ const Top = () => {
           </button>
         </nav>
 
-        {/* Search bar */}
-        <div className="search-container">
-          <input type="text" placeholder="Search..." className="search-bar" />
-          <button className="search-button">🔍</button>
-        </div>
+      
       </header>
     </>
   );
