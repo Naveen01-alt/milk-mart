@@ -1,34 +1,39 @@
-/* === Header Container === */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #ffffff;
-  padding: 14px 22px;
+  background-color: #ffffff; /* clean white header */
+  padding: 14px 22px; /* slightly reduced for compact navbar */
+  color: black;
   position: relative;
   z-index: 1000;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* === Logo === */
-.logo h1 {
-  font-size: 22px;
-  font-weight: 700;
-  color: #d32f2f;
-  margin: 0;
-  letter-spacing: 1px;
-  cursor: pointer;
+.logo img {
+  height: 36px; /* auto-scale logo */
+  width: auto;
+  object-fit: contain;
 }
 
-/* === Hamburger Button === */
+.logo {
+  font-size: 20px;
+  font-weight: 700;
+  color: #d32f2f; /* red brand accent */
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+/* === Menu button === */
 .menu-button {
   display: none;
   background: none;
   border: none;
-  color: #d32f2f; /* red on white */
+  color: #d32f2f; /* visible red hamburger */
   font-size: 28px;
   cursor: pointer;
-  z-index: 1101; /* must be above nav + overlay */
+  z-index: 1001;
   transition: transform 0.2s ease;
 }
 
@@ -36,10 +41,10 @@
   transform: scale(1.1);
 }
 
-/* === Nav (Desktop) === */
+/* === Nav buttons (Desktop) === */
 .nav {
   display: flex;
-  gap: 16px;
+  gap: 15px;
 }
 
 .nav-button {
@@ -47,9 +52,9 @@
   color: white;
   font-size: 14px;
   font-weight: 600;
-  padding: 8px 20px;
+  padding: 8px 18px;
   border: none;
-  border-radius: 25px;
+  border-radius: 20px;
   cursor: pointer;
   text-transform: uppercase;
   transition: all 0.3s ease;
@@ -58,13 +63,13 @@
 .nav-button:hover {
   background: linear-gradient(45deg, #f44336, #d32f2f);
   transform: translateY(-2px);
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* === Mobile Styles === */
 @media (max-width: 768px) {
   .menu-button {
-    display: block; /* show hamburger */
+    display: block;
   }
 
   .nav {
@@ -72,58 +77,51 @@
     top: 0;
     right: -100%;
     height: 100vh;
-    width: 260px;
+    width: 240px;
     flex-direction: column;
     align-items: flex-start;
-    background: #ffffff;
-    padding: 80px 20px 20px;
+    justify-content: flex-start;
+    background: #ffffff; /* match header for clean design */
+    padding: 70px 20px 20px;
     gap: 20px;
     transition: right 0.3s ease-in-out;
-    z-index: 1100; /* above overlay */
-    box-shadow: -2px 0 12px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
   }
 
   .nav.open {
-    right: 0; /* slide in */
+    right: 0;
   }
 
-/* === Mobile Nav Buttons === */
-.nav-button {
-  width: 100%;
-  text-align: left;
-  padding: 14px 18px;
-  background: none;
-  color: #333;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer; /* ensure clickable */
-  transition: background 0.2s ease, color 0.2s ease;
-  z-index: 1102; /* above overlay */
-  position: relative; /* to respect z-index */
-}
-
-.nav-button:hover {
-  background: rgba(211, 47, 47, 0.1);
-  color: #d32f2f;
-}
-
-/* === Overlay Fix === */
-.menu-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1099; /* lower than nav */
-}
-
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+  .nav-button {
+    width: 100%;
+    text-align: left;
+    padding: 12px 15px;
+    border-radius: 8px;
+    background: none;
+    color: #333;
+    font-weight: 600;
+    transition: background 0.2s ease;
   }
-  to {
-    opacity: 1;
+
+  .nav-button:hover {
+    background: rgba(211, 47, 47, 0.1);
+    color: #d32f2f;
+  }
+
+  /* Overlay for mobile */
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    display: none;
+  }
+
+  .menu-overlay.show {
+    display: block;
   }
 }
