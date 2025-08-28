@@ -87,26 +87,27 @@
     right: 0; /* slide in */
   }
 
-  .nav-button {
-    width: 100%;
-    text-align: left;
-    padding: 14px 18px;
-    background: none;
-    color: #333;
-    border-radius: 8px;
-    font-weight: 600;
-    transition: background 0.2s ease, color 0.2s ease;
-  }
-
-  .nav-button:hover {
-    background: rgba(211, 47, 47, 0.1);
-    color: #d32f2f;
-    transform: none;
-    box-shadow: none;
-  }
+/* === Mobile Nav Buttons === */
+.nav-button {
+  width: 100%;
+  text-align: left;
+  padding: 14px 18px;
+  background: none;
+  color: #333;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer; /* ensure clickable */
+  transition: background 0.2s ease, color 0.2s ease;
+  z-index: 1102; /* above overlay */
+  position: relative; /* to respect z-index */
 }
 
-/* === Overlay (when menu is open) === */
+.nav-button:hover {
+  background: rgba(211, 47, 47, 0.1);
+  color: #d32f2f;
+}
+
+/* === Overlay Fix === */
 .menu-overlay {
   position: fixed;
   top: 0;
@@ -114,9 +115,9 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: 1099; /* below nav but above header */
-  animation: fadeIn 0.3s ease;
+  z-index: 1099; /* lower than nav */
 }
+
 
 @keyframes fadeIn {
   from {
