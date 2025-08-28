@@ -12,7 +12,7 @@
 
 /* === Logo === */
 .logo img {
-  height: 36px; /* auto-scale logo */
+  height: 16px; /* auto-scale logo */
   width: auto;
   object-fit: contain;
 }
