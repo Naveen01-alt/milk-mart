@@ -5,13 +5,16 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-container">
+        
         {/* Logo & About */}
-        <div className="footer-section">
+        <div className="footer-section about">
           <img src="/logo.jpg" alt="Milk Brand Logo" className="logo" />
-          <p>Pure, fresh, and natural dairy products delivered to your home.</p>
+          <p>
+            Pure, fresh, and natural dairy products delivered straight to your home.
+          </p>
         </div>
 
-    
+        {/* Quick Links */}
         <div className="footer-section">
           <h4>Quick Links</h4>
           <ul>
@@ -22,7 +25,7 @@ const Footer = () => {
           </ul>
         </div>
 
-        
+        {/* Social Media */}
         <div className="footer-section">
           <h4>Follow Us</h4>
           <div className="social-icons">
@@ -32,17 +35,9 @@ const Footer = () => {
           </div>
         </div>
 
-        
-        <div className="footer-section">
-          <h4>Subscribe</h4>
-          <form>
-            <input type="email" placeholder="Enter your email" />
-            <button type="submit">Subscribe</button>
-          </form>
-        </div>
       </div>
 
-      
+      {/* Footer Bottom */}
       <div className="footer-bottom">
         <p>© {new Date().getFullYear()} Milk Brand. All rights reserved.</p>
       </div>
