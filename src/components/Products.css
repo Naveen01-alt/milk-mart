@@ -1,4 +1,6 @@
-/* Container around all products */
+.products-container{
+  padding-bottom:20px;
+}
 .products-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 per row on large screens */
