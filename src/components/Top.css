@@ -4,7 +4,7 @@
   align-items: center;
   background-color: #ffffff; /* new clean dark red */
   padding: 10px 18px; /* reduced height */
-  color: white;
+  color: black;
   position: relative;
   z-index: 1000;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* subtle shadow */
