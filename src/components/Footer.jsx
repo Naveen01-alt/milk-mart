@@ -6,13 +6,7 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-container">
         
-        {/* Logo & About */}
-        <div className="footer-section about">
-          <img src="/logo.jpg" alt="Milk Brand Logo" className="logo" />
-          <p>
-            Pure, fresh, and natural dairy products delivered straight to your home.
-          </p>
-        </div>
+       
 
         
        
